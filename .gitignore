@@ -1,0 +1,8 @@
+cat > .gitignore << 'EOF'
+venv/
+__pycache__/
+*.pyc
+audio_parkinsons_model.pkl
+audio_scaler.pkl
+data/
+EOF
