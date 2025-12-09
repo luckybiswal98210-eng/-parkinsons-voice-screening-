@@ -2,6 +2,5 @@ streamlit
 numpy
 librosa
 scikit-learn
-sounddevice
 soundfile
 gTTS
