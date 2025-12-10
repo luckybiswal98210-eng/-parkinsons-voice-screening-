@@ -18,10 +18,11 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Title font (decorative, like Algerian-style) */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
-        /* Subtitle font (clean sans-serif) */
+        /* Title font (handwritten) */
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        /* Subtitle font (decorative) */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
         body {
             background: radial-gradient(circle at top, #4a90e2, #050816);
         }
@@ -29,23 +30,27 @@ if st.session_state.show_welcome:
             text-align: center;
             padding-top: 120px;
         }
+
+        /* WELCOME / TO uses handwritten Pacifico */
         .floating-title {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 72px;
-            font-weight: 700;
+            font-family: 'Pacifico', cursive;
+            font-size: 70px;
+            font-weight: 400;
             color: #ffffff;
             text-shadow: 0 0 25px rgba(0,0,0,0.7);
-            letter-spacing: 6px;
+            letter-spacing: 3px;
             animation: float 3s ease-in-out infinite;
             line-height: 1.0;
         }
+
+        /* Parkinson's Voice Screening app uses Cinzel Decorative */
         .subtitle {
-            font-family: 'Pacifico', cursive;
-            font-size: 32px;
-            font-weight: 400;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 28px;
+            font-weight: 700;
             color: #ffe8a3;
             margin-top: 40px;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
         @keyframes float {
@@ -72,7 +77,7 @@ if st.session_state.show_welcome:
             st.session_state.show_welcome = False
             st.rerun()
 
-    st.stop()
+    st.stop()  # stop here so main app loads only after clicking
 
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
