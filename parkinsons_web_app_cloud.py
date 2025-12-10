@@ -18,8 +18,8 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Handwritten-style font */
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        /* Decorative Google font (instead of Algerian) */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
         body {
             background: radial-gradient(circle at top, #4a90e2, #050816);
@@ -29,13 +29,14 @@ if st.session_state.show_welcome:
             padding-top: 120px;
         }
         .floating-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 70px;
-            font-weight: 400;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 72px;
+            font-weight: 700;
             color: #ffffff;
             text-shadow: 0 0 25px rgba(0,0,0,0.7);
-            letter-spacing: 3px;
+            letter-spacing: 6px;
             animation: float 3s ease-in-out infinite;
+            line-height: 1.1;
         }
         .subtitle {
             font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -52,8 +53,10 @@ if st.session_state.show_welcome:
         </style>
 
         <div class="centered">
-            <div class="floating-title">Welcome to</div>
-            <div class="subtitle">Parkinson's Voice Screening app</div>
+            <div class="floating-title">
+                WELCOME<br>TO
+            </div>
+            <div class="subtitle">Parkinson's Voice Screening Demo</div>
         </div>
         """,
         unsafe_allow_html=True,
