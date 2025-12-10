@@ -18,8 +18,10 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Decorative Google font (instead of Algerian) */
+        /* Title font (decorative, like Algerian-style) */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+        /* Subtitle font (clean sans-serif) */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
         body {
             background: radial-gradient(circle at top, #4a90e2, #050816);
@@ -36,13 +38,15 @@ if st.session_state.show_welcome:
             text-shadow: 0 0 25px rgba(0,0,0,0.7);
             letter-spacing: 6px;
             animation: float 3s ease-in-out infinite;
-            line-height: 1.1;
+            line-height: 1.0;
         }
         .subtitle {
-            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            font-size: 22px;
-            color: #e0e0e0;
-            margin-top: 30px;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #ffe8a3;
+            margin-top: 40px;
+            letter-spacing: 1px;
         }
         @keyframes float {
             0%   { transform: translateY(0px); opacity: 0; }
@@ -69,6 +73,7 @@ if st.session_state.show_welcome:
             st.rerun()
 
     st.stop()
+
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
 def extract_features(path, sr_target=22050, n_mfcc=20):
