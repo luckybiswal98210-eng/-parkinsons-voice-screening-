@@ -41,13 +41,13 @@ if st.session_state.show_welcome:
             line-height: 1.0;
         }
         .subtitle {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 24px;
-    font-weight: 700;
-    color: #ffe8a3;
-    margin-top: 40px;
-    letter-spacing: 2px;
-    }
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffe8a3;
+            margin-top: 40px;
+            letter-spacing: 2px;
+        }
 
         @keyframes float {
             0%   { transform: translateY(0px); opacity: 0; }
