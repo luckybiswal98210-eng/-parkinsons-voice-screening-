@@ -21,8 +21,7 @@ if st.session_state.show_welcome:
         /* Title font (decorative, like Algerian-style) */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
         /* Subtitle font (clean sans-serif) */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
         body {
             background: radial-gradient(circle at top, #4a90e2, #050816);
         }
@@ -41,12 +40,12 @@ if st.session_state.show_welcome:
             line-height: 1.0;
         }
         .subtitle {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 24px;
-            font-weight: 700;
+            font-family: 'Pacifico', cursive;
+            font-size: 32px;
+            font-weight: 400;
             color: #ffe8a3;
             margin-top: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         @keyframes float {
