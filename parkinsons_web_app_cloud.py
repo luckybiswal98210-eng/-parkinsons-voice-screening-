@@ -41,13 +41,14 @@ if st.session_state.show_welcome:
             line-height: 1.0;
         }
         .subtitle {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            font-size: 24px;
-            font-weight: 500;
-            color: #ffe8a3;
-            margin-top: 40px;
-            letter-spacing: 1px;
-        }
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffe8a3;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    }
+
         @keyframes float {
             0%   { transform: translateY(0px); opacity: 0; }
             25%  { opacity: 1; }
@@ -60,7 +61,7 @@ if st.session_state.show_welcome:
             <div class="floating-title">
                 WELCOME<br>TO
             </div>
-            <div class="subtitle">Parkinson's Voice Screening Demo</div>
+            <div class="subtitle">Parkinson's Voice Screening app</div>
         </div>
         """,
         unsafe_allow_html=True,
