@@ -19,40 +19,41 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
+        /* Handwritten-style font */
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            background: radial-gradient(circle at top, #4a90e2, #050816);
+        }
         .centered {
             text-align: center;
             padding-top: 120px;
         }
         .floating-title {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                         system-ui, sans-serif;
-            font-size: 64px;
-            font-weight: 800;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+            font-family: 'Pacifico', cursive;
+            font-size: 70px;
+            font-weight: 400;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(0,0,0,0.6);
+            text-shadow: 0 0 25px rgba(0,0,0,0.7);
+            letter-spacing: 3px;
             animation: float 3s ease-in-out infinite;
         }
         .subtitle {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                         system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             font-size: 22px;
             color: #e0e0e0;
             margin-top: 30px;
         }
         @keyframes float {
             0%   { transform: translateY(0px); opacity: 0; }
-            30%  { opacity: 1; }
-            50%  { transform: translateY(-12px); }
+            25%  { opacity: 1; }
+            50%  { transform: translateY(-14px); }
             100% { transform: translateY(0px); opacity: 1; }
         }
-        body {
-            background: radial-gradient(circle at top, #4a90e2, #050816);
-        }
         </style>
+
         <div class="centered">
-            <div class="floating-title">WELCOME TO</div>
+            <div class="floating-title">Welcome to</div>
             <div class="subtitle">Parkinson's Voice Screening Demo</div>
         </div>
         """,
@@ -65,7 +66,7 @@ if st.session_state.show_welcome:
             st.session_state.show_welcome = False
             st.rerun()
 
-    st.stop()  # do not run rest of app while welcome is shown
+    st.stop()
 
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
