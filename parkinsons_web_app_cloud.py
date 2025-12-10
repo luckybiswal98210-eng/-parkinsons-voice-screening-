@@ -6,6 +6,58 @@ import os
 import soundfile as sf
 import tempfile
 from gtts import gTTS
+import streamlit as st
+
+st.set_page_config(page_title="Parkinson's Voice Screening", layout="wide")
+
+# --------- WELCOME SCREEN USING SESSION STATE ----------
+if "show_welcome" not in st.session_state:
+    st.session_state.show_welcome = True
+
+if st.session_state.show_welcome:
+    # Make page look like a splash screen
+    st.markdown(
+        """
+        <style>
+        .centered {
+            text-align: center;
+            padding-top: 120px;
+        }
+        .floating-title {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0,0,0,0.6);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%   { transform: translateY(0px); }
+            50%  { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        body {
+            background: radial-gradient(circle at top, #4a90e2, #050816);
+        }
+        </style>
+        <div class="centered">
+            <div class="floating-title">WELCOME</div>
+            <h3 style="color:#e0e0e0; margin-top: 30px;">
+                Parkinson's Voice Screening Demo
+            </h3>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col1, col2, col3 = st.columns([1,1,1])
+    with col2:
+        if st.button("Enter app", type="primary", use_container_width=True):
+            st.session_state.show_welcome = False
+            st.rerun()
+    st.stop()   # do not run the rest of the app while welcome is shown
+
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
 def extract_features(path, sr_target=22050, n_mfcc=20):
