@@ -36,9 +36,7 @@ if st.session_state.show_welcome:
             font-family: 'Dancing Script', cursive;
             font-size: 90px;
             font-weight: 700;
-            background: linear-gradient(90deg, #ffe8a3, #ffd36b, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;  /* pure white text */
             text-shadow:
                 0 0 8px rgba(0,0,0,0.7),
                 0 0 20px rgba(0,0,0,0.8);
@@ -46,7 +44,8 @@ if st.session_state.show_welcome:
             animation: float 3s ease-in-out infinite;
             line-height: 0.9;
             -webkit-text-stroke: 1px rgba(0,0,0,0.6);
-        }
+        }   
+
 
         /* Subtitle: Parkinson's Voice Screening app */
         .subtitle {
