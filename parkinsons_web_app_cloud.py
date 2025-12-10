@@ -18,8 +18,8 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Handwritten title font */
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        /* Handwritten title font (more readable script) */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
         /* Decorative subtitle font */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
@@ -31,11 +31,11 @@ if st.session_state.show_welcome:
             padding-top: 120px;
         }
 
-        /* WELCOME / TO in flowing handwritten style */
+        /* WELCOME / TO in Dancing Script */
         .floating-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 96px;
-            font-weight: 400;
+            font-family: 'Dancing Script', cursive;
+            font-size: 80px;
+            font-weight: 700;
             color: #ffffff;
             text-shadow: 0 0 25px rgba(0,0,0,0.7);
             letter-spacing: 2px;
@@ -78,6 +78,7 @@ if st.session_state.show_welcome:
             st.rerun()
 
     st.stop()
+
 
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
