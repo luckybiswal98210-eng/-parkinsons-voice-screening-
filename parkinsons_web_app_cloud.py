@@ -18,7 +18,7 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Handwritten title font (more readable script) */
+        /* Handwritten title font */
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
         /* Decorative subtitle font */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
@@ -31,19 +31,24 @@ if st.session_state.show_welcome:
             padding-top: 120px;
         }
 
-        /* WELCOME / TO in Dancing Script */
+        /* More designed WELCOME / TO */
         .floating-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 80px;
+            font-size: 90px;
             font-weight: 700;
-            color: #ffffff;
-            text-shadow: 0 0 25px rgba(0,0,0,0.7);
-            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ffe8a3, #ffd36b, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow:
+                0 0 8px rgba(0,0,0,0.7),
+                0 0 20px rgba(0,0,0,0.8);
+            letter-spacing: 3px;
             animation: float 3s ease-in-out infinite;
             line-height: 0.9;
+            -webkit-text-stroke: 1px rgba(0,0,0,0.6);
         }
 
-        /* Parkinson's Voice Screening app in Cinzel Decorative */
+        /* Subtitle: Parkinson's Voice Screening app */
         .subtitle {
             font-family: 'Cinzel Decorative', cursive;
             font-size: 28px;
@@ -51,6 +56,7 @@ if st.session_state.show_welcome:
             color: #ffe8a3;
             margin-top: 50px;
             letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
         @keyframes float {
