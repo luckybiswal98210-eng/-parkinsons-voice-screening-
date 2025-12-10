@@ -18,9 +18,9 @@ if st.session_state.show_welcome:
     st.markdown(
         """
         <style>
-        /* Title font (handwritten) */
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-        /* Subtitle font (decorative) */
+        /* Handwritten title font */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        /* Decorative subtitle font */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
         body {
@@ -31,25 +31,25 @@ if st.session_state.show_welcome:
             padding-top: 120px;
         }
 
-        /* WELCOME / TO uses handwritten Pacifico */
+        /* WELCOME / TO in flowing handwritten style */
         .floating-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 70px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 96px;
             font-weight: 400;
             color: #ffffff;
             text-shadow: 0 0 25px rgba(0,0,0,0.7);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             animation: float 3s ease-in-out infinite;
-            line-height: 1.0;
+            line-height: 0.9;
         }
 
-        /* Parkinson's Voice Screening app uses Cinzel Decorative */
+        /* Parkinson's Voice Screening app in Cinzel Decorative */
         .subtitle {
             font-family: 'Cinzel Decorative', cursive;
             font-size: 28px;
             font-weight: 700;
             color: #ffe8a3;
-            margin-top: 40px;
+            margin-top: 50px;
             letter-spacing: 3px;
         }
 
@@ -77,7 +77,7 @@ if st.session_state.show_welcome:
             st.session_state.show_welcome = False
             st.rerun()
 
-    st.stop()  # stop here so main app loads only after clicking
+    st.stop()
 
 
 # ---------- EXTRACT FEATURES FUNCTION ----------
