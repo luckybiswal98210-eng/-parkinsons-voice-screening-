@@ -1,1 +1,6 @@
+streamlit
+numpy
+librosa
+soundfile
+sounddevice
 praat-parselmouth==0.4.3
