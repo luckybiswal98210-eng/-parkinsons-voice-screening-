@@ -1,6 +1,1 @@
-streamlit
-numpy
-librosa
-scikit-learn
-soundfile
-gTTS
+praat-parselmouth==0.4.3

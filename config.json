@@ -1,0 +1,52 @@
+{
+    "interview": {
+        "min_recording_duration": 10,
+        "max_recording_duration": 20,
+        "silence_threshold": 0.01
+    },
+    "confidence_weights": {
+        "vocal": 0.3,
+        "articulatory": 0.3,
+        "prosodic": 0.25,
+        "timing": 0.15
+    },
+    "baseline_ranges": {
+        "f0_mean": [
+            100,
+            250
+        ],
+        "f0_std": [
+            20,
+            80
+        ],
+        "jitter": [
+            0.001,
+            0.01
+        ],
+        "shimmer": [
+            0.02,
+            0.08
+        ],
+        "hnr": [
+            10,
+            25
+        ],
+        "speech_rate": [
+            4.0,
+            6.5
+        ],
+        "pause_frequency": [
+            0.1,
+            0.3
+        ],
+        "pitch_range": [
+            50,
+            200
+        ]
+    },
+    "severity_thresholds": {
+        "mild": 0.7,
+        "moderate": 0.5,
+        "severe": 0.3
+    }
+}

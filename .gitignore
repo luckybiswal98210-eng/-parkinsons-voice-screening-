@@ -1,8 +1,59 @@
-cat > .gitignore << 'EOF'
-venv/
+# Python
 __pycache__/
-*.pyc
-audio_parkinsons_model.pkl
-audio_scaler.pkl
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+venv */
+env/
+ENV/
+.venv
+
+# Audio files
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+
+# Data files
 data/
-EOF
+*.pkl
+*.h5
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+temp/
+tmp/

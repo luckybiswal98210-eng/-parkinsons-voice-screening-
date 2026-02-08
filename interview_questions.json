@@ -1,0 +1,60 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Tell me about yourself",
+      "category": "personal_introduction",
+      "expected_duration": 15,
+      "description": "A classic opening question to introduce yourself professionally"
+    },
+    {
+      "id": 2,
+      "text": "What are your greatest strengths?",
+      "category": "self_assessment",
+      "expected_duration": 15,
+      "description": "Highlight your key professional strengths and abilities"
+    },
+    {
+      "id": 3,
+      "text": "Describe a challenging situation you faced and how you handled it",
+      "category": "behavioral",
+      "expected_duration": 20,
+      "description": "Demonstrate problem-solving and resilience through a specific example"
+    },
+    {
+      "id": 4,
+      "text": "Why are you interested in this position?",
+      "category": "motivation",
+      "expected_duration": 15,
+      "description": "Express your interest and alignment with the role"
+    },
+    {
+      "id": 5,
+      "text": "Where do you see yourself in five years?",
+      "category": "career_goals",
+      "expected_duration": 15,
+      "description": "Share your professional aspirations and career trajectory"
+    },
+    {
+      "id": 6,
+      "text": "Describe your ideal work environment",
+      "category": "work_preferences",
+      "expected_duration": 15,
+      "description": "Explain the conditions where you perform your best work"
+    },
+    {
+      "id": 7,
+      "text": "Tell me about a time you worked in a team",
+      "category": "behavioral",
+      "expected_duration": 20,
+      "description": "Showcase your collaboration and teamwork skills"
+    },
+    {
+      "id": 8,
+      "text": "What motivates you in your work?",
+      "category": "motivation",
+      "expected_duration": 15,
+      "description": "Share what drives your professional performance and satisfaction"
+    }
+  ]
+}
