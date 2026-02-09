@@ -8,9 +8,15 @@ import numpy as np
 import os
 import soundfile as sf
 import tempfile
-import sounddevice as sd
 import json
 from pathlib import Path
+
+# Try to import sounddevice (not available on cloud deployments)
+try:
+    import sounddevice as sd
+    SOUNDDEVICE_AVAILABLE = True
+except (ImportError, OSError):
+    SOUNDDEVICE_AVAILABLE = False
 
 # Import analysis modules
 try:
@@ -161,17 +167,59 @@ if questions:
     if input_method == "📁 Upload audio file":
         audio_file = st.file_uploader("Upload your response", type=["wav", "mp3", "m4a"], key="upload")
     elif input_method == "🎤 Record live":
-        duration = st.slider("Recording duration (seconds)", 10, 20, 15)
-        if st.button(f"🎤 START RECORDING ({duration} seconds)", type="primary", key="record"):
-            with st.spinner(f"🎤 Recording for {duration} seconds... Speak naturally!"):
-                fs = 22050
-                audio_data = sd.rec(int(duration * fs), samplerate=fs, channels=1)
-                sd.wait()
-                st.session_state.recorded_audio_path = tempfile.NamedTemporaryFile(
-                    delete=False, suffix=".wav"
-                ).name
-                sf.write(st.session_state.recorded_audio_path, audio_data, fs)
-                st.success(f"✅ {duration}-second recording saved!")
+        duration = st.slider("Recording duration (seconds)", 10, 20, 15, key="duration_slider")
+        
+        col_rec1, col_rec2 = st.columns([2, 1])
+        with col_rec1:
+            if st.button(f"🎤 START RECORDING ({duration} seconds)", type="primary", key="record", use_container_width=True):
+                if SOUNDDEVICE_AVAILABLE:
+                    try:
+                        # Show recording indicator
+                        recording_placeholder = st.empty()
+                        recording_placeholder.warning(f"🔴 **RECORDING IN PROGRESS** - Speak naturally for {duration} seconds...")
+                        
+                        fs = 22050
+                        audio_data = sd.rec(int(duration * fs), samplerate=fs, channels=1)
+                        sd.wait()
+                        
+                        # Save the recording
+                        st.session_state.recorded_audio_path = tempfile.NamedTemporaryFile(
+                            delete=False, suffix=".wav"
+                        ).name
+                        sf.write(st.session_state.recorded_audio_path, audio_data, fs)
+                        
+                        # Clear recording indicator and show success
+                        recording_placeholder.empty()
+                        st.success(f"✅ Recording complete! ({duration} seconds)")
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"❌ Recording failed: {str(e)}")
+                else:
+                    st.error("🚫 Live recording is not available on this platform. Please upload an audio file instead.")
+        
+        with col_rec2:
+            if st.session_state.recorded_audio_path and os.path.exists(st.session_state.recorded_audio_path):
+                if st.button("🗑️ Clear Recording", key="clear_rec", use_container_width=True):
+                    try:
+                        os.remove(st.session_state.recorded_audio_path)
+                    except:
+                        pass
+                    st.session_state.recorded_audio_path = None
+                    st.rerun()
+        
+        # Display audio player if recording exists
+        if st.session_state.recorded_audio_path and os.path.exists(st.session_state.recorded_audio_path):
+            st.markdown("#### 🎧 Your Recording")
+            st.info("Listen to your recording below. You can play, pause, and seek to any position.")
+            
+            # Read the audio file and display it with Streamlit's audio player
+            with open(st.session_state.recorded_audio_path, 'rb') as audio_file_obj:
+                audio_bytes = audio_file_obj.read()
+                st.audio(audio_bytes, format='audio/wav')
+            
+            # Show file info
+            file_size = os.path.getsize(st.session_state.recorded_audio_path) / 1024  # KB
+            st.caption(f"📊 File size: {file_size:.1f} KB | Duration: ~{duration} seconds")
     
     # ANALYZE BUTTON
     if (audio_file is not None or st.session_state.recorded_audio_path) and st.button(
